@@ -1,15 +1,16 @@
 import { createContext, useState } from "react";
 
 
-export const counterContextObj = createContext()
-function contextProvider({children}) {
-    const [counter, setCounter] = useState(10)
-    const changeCounter = () => setCounter(counter + 1);
+export const CounterContextObj = createContext()
+function ContextProvider({children}) {
+    const [counter, setCounter] = useState(0)
+    const changeCounterP = () => setCounter(counter + 1);
+    const changeCounterM = () => setCounter(counter - 1);
     return (
-        <counterContextObj.Provider value={{counter, changeCounter}}>
+        <CounterContextObj.Provider value={{counter, changeCounterP, changeCounterM}}>
             {children}
-        </counterContextObj.Provider>
+        </CounterContextObj.Provider>
     )
 }
 
-export default contextProvider;
+export default ContextProvider;
