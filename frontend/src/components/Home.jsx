@@ -4,21 +4,21 @@ function Home() {
   return (
     <div className="flex flex-col gap-10">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-12 rounded-3xl shadow-2xl">
-        <h1 className="text-5xl font-extrabold mb-4">Employee Management</h1>
-        <p className="text-xl text-blue-100 max-w-2xl mb-8 opacity-90">
-          Create delete employees, also context and zustand
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-8 md:p-12 rounded-3xl shadow-2xl">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Employee Management</h1>
+        <p className="text-lg md:text-xl text-blue-100 max-w-2xl mb-8 opacity-90">
+          Streamline your workforce management with our intuitive dashboard.
         </p>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <Link 
             to="/ListOfEmployee" 
-            className="px-8 py-4 bg-white text-blue-600 font-bold rounded-2xl transition transform shadow-lg"
+            className="px-8 py-4 bg-white text-blue-600 font-bold rounded-2xl transition transform hover:scale-105 active:scale-95 shadow-lg text-center"
           >
             View Employee List
           </Link>
           <Link 
             to="/CreateEmployee" 
-            className="px-8 py-4 bg-blue-500 text-white font-bold rounded-2xl border-blue-400 transition transform shadow-lg"
+            className="px-8 py-4 bg-blue-500 text-white font-bold rounded-2xl border border-blue-400 transition transform hover:scale-105 active:scale-95 shadow-lg text-center"
           >
             + Create New Employee
           </Link>
