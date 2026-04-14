@@ -14,7 +14,6 @@ app.use(cors({
     credentials: true
 }))
 
-app.use("/emp", empAPP);
 
 let db_address = process.env.DB_URL || 'mongodb://localhost:27017/mern_test';
 let port = process.env.PORT || 6767;
@@ -48,6 +47,9 @@ app.use(async (req, res, next) => {
         res.status(500).json({ message: "Database Connection Failed", error: error.message });
     }
 });
+
+// Configure API routes after ensuring DB connection is ready
+app.use("/emp", empAPP);
 
 // Global Error Handler
 app.use((err, req, res, next) => {
