@@ -29,15 +29,15 @@ function Home() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <Link to="/Assignment1" className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:border-orange-300 transition group">
           <h2 className="text-2xl font-bold text-gray-800 mb-2 group-hover:text-orange-600">Assignment 1</h2>
-          <p className="text-gray-500">Explore complex state management patterns using Zustand and Context API in a real-world scenario.</p>
+          <p className="text-gray-500">Implementing Counter Logic with Zustand and Context API</p>
         </Link>
         <Link to="/Assignment2" className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:border-purple-300 transition group">
           <h2 className="text-2xl font-bold text-gray-800 mb-2 group-hover:text-purple-600">Assignment 2</h2>
-          <p className="text-gray-500">Implementing User Management with API fetching and state-lifting patterns.</p>
+          <p className="text-gray-500">Implementing User Management with API fetching and updating count dynamically</p>
         </Link>
         <Link to="/Assignment3" className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:border-blue-300 transition group">
           <h2 className="text-2xl font-bold text-gray-800 mb-2 group-hover:text-blue-600">Assignment 3</h2>
-          <p className="text-gray-500">User Management system featuring form validation and dynamic table rendering.</p>
+          <p className="text-gray-500">User creating with dynamic table rendering.</p>
         </Link>
       </div>
     </div>
