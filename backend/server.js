@@ -19,17 +19,35 @@ app.use("/emp", empAPP);
 let db_address = process.env.DB_URL || 'mongodb://localhost:27017/mern_test';
 let port = process.env.PORT || 6767;
 
-// Function to connect DB
+// Caching DB Connection for Vercel Serverless
+let cachedConnection = null;
+
 const connectDB = async () => {
+    if (cachedConnection) {
+        return cachedConnection;
+    }
     try {
-        await connect(db_address);
+        const db = await connect(db_address, {
+            serverSelectionTimeoutMS: 5000 // fail fast if unable to reach Mongo
+        });
+        cachedConnection = db.connection;
         console.log(`The DataBase is connected!`);
+        return cachedConnection;
     } catch (err) {
         console.log("Connection refused :", err);
+        throw err;
     }
 }
 
-connectDB();
+// Middleware to ensure Database is connected before serving API routes!
+app.use(async (req, res, next) => {
+    try {
+        await connectDB();
+        next();
+    } catch (error) {
+        res.status(500).json({ message: "Database Connection Failed", error: error.message });
+    }
+});
 
 // Global Error Handler
 app.use((err, req, res, next) => {
